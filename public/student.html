@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Location Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* General body styling */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/background-blur-clean-531880.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container for the bus tracker */
+    .bus-tracker-container {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 1000px;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Styling for the left section (tracking details) */
+    .left-section {
+      flex: 1;
+      color: #fff;
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      text-align: left;
+      font-size: 28px;
+    }
+
+    label, select, button {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      flex: 1;
+    }
+
+    button {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%; 
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+    }
+
+    .map-container {
+      flex: 1;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    #errorMessage {
+      color: red;
+      font-size: 16px;
+    }
+
+    /* Loader styling */
+    #loader {
+      display: none;
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bus-tracker-container">
+    <div class="left-section">
+      <h2>Track Bus Location</h2>
+      <label for="busIdSelect">Select Bus ID:</label>
+      <select id="busIdSelect"></select>
+
+      <div id="errorMessage"></div>
+      <button id="getLocationBtn">Get Location</button>
+      <div id="loader">Loading...</div>
+    </div>
+    <div class="map-container">
+      <div id="map"></div>
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+      <script src="student.js"></script>
+    </div>
+  </div>
+</body>
+</html>
